@@ -1,0 +1,4 @@
+27.5, Oskar, classic, "rearview mirror; lighter; beacons", good bike for a walk
+29.0, Sport, classic, "lighter; beacons planetary hub", good bike for a sport exercises
+30.0, Mounting Bike, electric, lighter, good bike for mountains walk
+35.0, KhVZ, combustion engine, "rearview mirror; lighter", good bike for city walk
