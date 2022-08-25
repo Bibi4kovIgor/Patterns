@@ -25,7 +25,5 @@ public enum BikeType {
         };
     }
 
-
-
 }
 

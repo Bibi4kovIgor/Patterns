@@ -1,17 +1,21 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Arrays;
 import java.util.List;
 
+
+
+/**
+ * NOTE: You should need to uncomment <b>@Builder</b> annotation and comment <b>@NoArgsConstructor</b> one
+ * if you'll use Lombok standard builder
+ * NOTE: If you want to use custom builder, then you'll need to uncomment <b>@NoArgsConstructor</b> annotation
+ * and comment <b>@Builder</b> one
+ */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
+@NoArgsConstructor
 //@Builder
 public class Bike {
     private double wheelsRadius;
@@ -20,8 +24,17 @@ public class Bike {
     private List<String> accessories;
     private String description;
 
+    /**
+     * This method is needed just for shorten of BikeBuilder call
+     *
+     * @return BikeBuilder
+     */
+    public static BikeBuilder builder() {
+        return  BikeBuilder.bikeBuilder();
+    }
+
     public static Bike parseBikeFromCsv(String[] strings) {
-        return BikeBuilder.bikeBuilder()
+        return builder()
                 .withWheelsRadius(Double.parseDouble(strings[0]))
                 .withModel(strings[1])
                 .withBikeType(BikeType.getBikeTypeByString(strings[2]))
@@ -35,7 +48,7 @@ public class Bike {
         return "Bike{" +
                 "wheelsRadius=" + wheelsRadius +
                 ", model='" + model + '\'' +
-                ", bikeType=" + bikeType.getBikeType() +
+                ", bikeType=" + bikeType +
                 ", accessories=" + accessories +
                 ", description='" + description + '\'' +
                 '}';
